@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "assessment_be_engineer_3_identityapi": "StartDebugging",
+        "assessment_be_engineer_3_api": "StartDebugging",
+        "assessment_be_engineer_3_web": "StartDebugging"
+      }
+    }
+  }
+}

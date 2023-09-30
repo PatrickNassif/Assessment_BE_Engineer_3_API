@@ -1,0 +1,44 @@
+﻿@model Assessment_BE_Engineer_3_Web.Models.DTO.FileCreateDTO
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+	<div asp-validation-summary="All"></div>
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-4 row">
+				<div class="col-12 pb-2">
+					<h2 class="text-primary">Create File</h2>
+					<hr />
+				</div>
+				@*<div asp-validation-summary="All"></div>*@
+				<div class="mb-3">
+					<label asp-for="Name"></label>
+					<input asp-for="Name" class="form-control" />
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="FormFile">File Url*</label>
+					<input type="file" asp-for="FormFile" id="uploadBox" class="form-control" />
+					<span asp-validation-for="FormFile" class="text-danger"></span>
+				</div>
+
+				<div class="col-12">
+
+					<button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+					<a asp-action="Index" class="btn btn-secondary" style="width:150px">
+						Back to List
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+
+}

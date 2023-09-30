@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+
+  appdbtest:
+    container_name: app-dbtest
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=password@12345#
+
+  assessment_be_engineer_3_web:
+    image: 0737/assessmentbeengineer3web
+    ports:
+      - 7286:80
+
+  assessment_be_engineer_3_identityapi:
+    image: 0737/assessmentbeengineer3identityapi
+    ports:
+      - 7262:80
+    depends_on:
+      - appdbtest
+    environment:
+      - DB_HOST=appdbtest
+      - DB_NAME=AssessmentEngineer3IdentityApi
+      - DB_SA_PASSWORD=password@12345#
+
+  assessment_be_engineer_3_api:
+    image: 0737/assessmentbeengineer3api
+    ports:
+      - 7205:80
+    depends_on:
+      - appdbtest
+    environment:
+      - DB_HOST=appdbtest
+      - DB_NAME=AssessmentEngineer3Api
+      - DB_SA_PASSWORD=password@12345#
