@@ -8,9 +8,7 @@ namespace Assessment_BE_Engineer_3_API.IDbInitializer
 {
     public class DbInitializer : IDbInitializer
     {
-
         private readonly ApplicationDbContext _db;
-
         public DbInitializer(ApplicationDbContext db)
         {
             _db = db;

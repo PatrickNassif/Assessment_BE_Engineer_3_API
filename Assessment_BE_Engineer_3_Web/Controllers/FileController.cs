@@ -2,6 +2,7 @@
 using Assessment_BE_Engineer_3_Web.Models;
 using Assessment_BE_Engineer_3_Web.Models.DTO;
 using Assessment_BE_Engineer_3_Web.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -22,6 +23,7 @@ namespace Assessment_BE_Engineer_3_Web.Controllers
 			_fileService = fileService;
 			fileUrl = configuration.GetValue<string>("ServiceUrls:FileAPI");
 		}
+		[Authorize]
 		public async Task<IActionResult> Index()
 		{
 			List<FileDTO> list = new();
